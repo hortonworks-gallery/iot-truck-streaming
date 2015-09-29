@@ -1,0 +1,18 @@
+package com.sample
+
+import com.hortonworks.streaming.impl.bolts.TruckEvent;
+
+declare TruckEvent
+	@role( event )
+end
+
+rule "Violation"
+    when
+	$t : TruckEvent()
+	$d : Number() from $t.driverId
+	Number( $count : intValue, $count >=1 ) from accumulate(
+	$violations : TruckEvent(eventType != 'Normal' && driverId == $d.intValue())
+	over window:time(3m), count( $violations ))
+    then
+	System.out.println("violation " + $d);
+end

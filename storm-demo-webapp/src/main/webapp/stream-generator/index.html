@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Stream Generator</title>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <link href="../assets/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/common/stormdemo.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../assets/lib/html5shiv/dist/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="container">
+      <div id="heading" class="masthead">
+        <div class="pull-right">
+          <span class="text-info" data-bind="text: username"><em></em></span>&nbsp;
+          <a href="../index.html" class="btn"><i class="icon-random"></i>Home Page</a>&nbsp;
+          <button data-bind="click: logout" class="btn"><i class="icon-off"></i></button>
+        </div>
+        <h3 class="muted">Stream Generator</h3>
+      </div>
+            
+      
+      <div id="main-content">
+		  <b>Map Truck Routes</b>
+          <form class="form-horizontal" data-bind="submit: streamGenerator().mapRoutes">
+
+            <div class="control-group">
+              <label class="control-label" for="eventEmitterClass2">Event Emitter Class</label>
+              <div class="controls">
+                <input id="eventEmitterClass2" type="text" data-bind="value: streamGenerator().eventEmitterClass2" >
+              </div>
+            </div>
+            
+            <div class="control-group">
+              <label class="control-label" for="eventCollectorClass2">Event Collector Class</label>
+              <div class="controls">
+                <input id="eventCollectorClass2" type="text" data-bind="value: streamGenerator().eventCollectorClass2">
+              </div>
+            </div>     
+            
+            <div class="control-group">
+              <label class="control-label" for="events2">Number of Events</label>
+              <div class="controls">
+                <input id="events2" type="text" data-bind="value: streamGenerator().events2">
+              </div>
+            </div>   
+            
+            <div class="control-group">
+              <label class="control-label" for="delayBetweenEvents">Delay Between Events (milliseconds)</label>
+              <div class="controls">
+                <input id="numberOfEvents" type="text" data-bind="value: streamGenerator().delayBetweenEvents">
+              </div>
+            </div>                         
+            
+            <div class="control-group">
+              <label class="control-label" for="routeDirectory">Directory Location of Truck Routes</label>
+              <div class="controls">
+                <input id="routeDirectory" type="text" data-bind="value: streamGenerator().routeDirectory">
+              </div>
+            </div>        
+            
+            <div class="control-group">
+              <label class="control-label" for="centerCoordinatesLat">Center LAT Coordinate</label>
+              <div class="controls">
+                <input id="centerCoordinatesLat" type="text" data-bind="value: streamGenerator().centerCoordinatesLat">
+              </div>
+            </div>   
+            
+            <div class="control-group">
+              <label class="control-label" for="centerCoordinatesLong">Center LONG Coordinate</label>
+              <div class="controls">
+                <input id="centerCoordinatesLong" type="text" data-bind="value: streamGenerator().centerCoordinatesLong">
+              </div>
+            </div>    
+            
+            <div class="control-group">
+              <label class="control-label" for="zoomLevel">Map Zoom Level</label>
+              <div class="controls">
+                <input id="zoomLevel" type="text" data-bind="4">
+              </div>
+            </div>      
+            
+            <div class="control-group">
+              <label class="control-label" for="truckSymbolSize">Truck Symbol Size</label>
+              <div class="controls">
+                <input id="truckSymbolSize" type="text" data-bind="value: streamGenerator().truckSymbolSize">
+              </div>
+            </div>                                                        
+            
+            <button class="btn btn-primary" type="submit">Map Truck Routes</button>
+          </form>
+
+
+        
+      </div>      
+    </div>
+
+    <!-- 3rd party -->
+    <script src="../assets/lib/jquery/jquery.js"></script>
+    <script src="../assets/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="../assets/lib/knockout/knockout.js"></script>
+    <script src="../assets/lib/sockjs/sockjs.js"></script>
+    <script src="../assets/lib/stomp/dist/stomp.js"></script>
+
+    <!-- application -->
+    <script src="streamgenerator.js"></script>
+    <script type="text/javascript">
+    (function() {
+        var socket = new SockJS('/storm-demo-web-app/streamgenerator');
+        var stompClient = Stomp.over(socket);
+
+        var appModel = new ApplicationModel(stompClient);
+        ko.applyBindings(appModel);
+
+      })();
+    </script>
+
+  </body>
+</html>

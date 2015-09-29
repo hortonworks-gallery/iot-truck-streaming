@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sign in &middot; Storm Demo</title>
+  <link href="assets/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/common/login.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+    <div data-bind="visible: showErrorMessage" class="alert alert-error">
+      Invalid username/password.
+    </div>
+    <form class="form-signin" method="post" action="login.html">
+      <h3 class="muted form-signin-heading">Please sign in</h3>
+      <input type="text" class="input-block-level" placeholder="User name" name="username" value="gvetticaden">
+      <input type="password" class="input-block-level" placeholder="Password" name="password" value="gvetticaden">
+      <button class="btn btn-primary" type="submit">Sign in</button>
+      <hr>
+      <p class="text-info"><small>
+        Log in as <strong>gvetticaden/gvetticaden</strong> 
+
+    </form>
+  </div><!-- /container -->
+
+  <script src="assets/lib/knockout/knockout.js"></script>
+
+  <script type="text/javascript">
+    ko.applyBindings({
+      showErrorMessage : ko.computed(function() {
+        var query = window.location.search;
+        return query ? (query.indexOf('error') != -1) : false;
+      })
+    });
+  </script>
+
+</body>
+</html>

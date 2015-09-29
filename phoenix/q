@@ -1,0 +1,1 @@
+select hours_logged, miles_logged from timesheet where driverid=10 and week=2;

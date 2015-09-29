@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.opengis.net/kml/2.2"
+xmlns="http://www.opengis.net/kml/2.2" elementFormDefault="qualified">
+
+<xs:element name="kml" type="kml"  />
+
+<xs:complexType name="kml">
+	<xs:sequence>
+		<xs:element name="Document" type="document" minOccurs="1" maxOccurs="1"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="document" >
+  <xs:sequence> 	
+  	<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+  	<xs:element name="Placemark" type="placemark" minOccurs="0" maxOccurs="unbounded"/>  
+  	<xs:element name="Style" type="style" minOccurs="0" maxOccurs="1"/>  
+  </xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="placemark">
+	<xs:sequence>
+		<xs:element name="styleUrl" type="xs:string"/>
+		<xs:element name="name" type="xs:string"/>
+		<xs:element name="Point" type="point" minOccurs="1" maxOccurs="1"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+<xs:complexType name="point">
+	<xs:sequence>
+		<xs:element name="coordinates" type="xs:string"/>
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="style">
+	
+	<xs:sequence>
+		<xs:element name="IconStyle" type="iconstyle"/>
+	</xs:sequence>
+	<xs:attribute name="id" use="required"/>
+</xs:complexType>
+
+
+<xs:complexType name="iconstyle">
+	<xs:sequence>
+		<xs:element name="color" type="xs:string"/>
+		<xs:element name="scale" type="xs:string"/>
+		<xs:element name="Icon" type="icon"/>
+	</xs:sequence>
+	
+</xs:complexType>
+
+<xs:complexType name="icon">
+	<xs:sequence>
+		<xs:element name="href" type="xs:string"/>
+	</xs:sequence>
+</xs:complexType>
+
+
+
+
+</xs:schema>

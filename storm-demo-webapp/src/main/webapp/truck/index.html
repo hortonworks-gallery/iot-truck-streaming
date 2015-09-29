@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Driver Monitoring Application</title>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <link href="../assets/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/common/stormdemo.css" rel="stylesheet">
+	 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+  </head>
+  <body>
+
+	 
+	 
+	 <div class="container">
+      <div id="heading" class="masthead">
+        <div class="pull-right">
+          <span class="text-info" data-bind="text: username"><em></em></span>&nbsp;
+          <a href="../index.html" class="btn"><i class="icon-random"></i>Home Page</a>&nbsp;
+          <button data-bind="click: logout" class="btn"><i class="icon-off"></i></button>
+        </div>
+        <h3 class="muted">Driver Monitoring Application</h3>
+      </div>
+      <div id="map"> </div>
+      <div id="main-content">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Driver Name</th>
+               <th>Route Name</th>
+              <th>TruckId</th>               
+              <th>DriverId</th>
+			  <th>RouteId</th>
+              <th class="number">Timestamp</th>
+              <th class="number">Longitude</th>
+              <th class="number">Latitude</th>
+              <th class="number">Last Infraction</th>
+              <th>Total Infractions</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody data-bind="foreach: driverMontior().rows">
+            <tr data-bind="css: rowClass">
+              <td data-bind="text: driverName"></td>
+               <td data-bind="text: routeName"></td>
+               <td data-bind="text: truckId"></td>
+              <td data-bind="text: driverId"></td>
+              <td data-bind="text: routeId"></td>
+              <td data-bind="text: timeStampString"></td>
+              <td data-bind="text: longitude"></td>
+              <td data-bind="text: latitude"></td>
+              <td data-bind="text: infractionEvent"></td>
+              <td data-bind="text: numberOfInfractions" class="number"></td>
+             </tr>
+          </tbody>
+      
+          <tbody></tbody>
+        </table>
+        <div class="alert alert-warning">
+          <h5>Notifications</h5>
+          <ul data-bind="foreach: notifications">
+            <li data-bind="text: notification"></li>
+          </ul>
+        </div>
+      </div>
+        </div>	 
+
+    <!-- 3rd party -->
+    <script src="../assets/lib/jquery/jquery.js"></script>
+    <script src="../assets/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="../assets/lib/knockout/knockout.js"></script>
+    <script src="../assets/lib/sockjs/sockjs.js"></script>
+    <script src="../assets/lib/stomp/dist/stomp.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+
+    <!-- application -->
+    <script src="truck.js"></script>
+    <script type="text/javascript">
+      
+
+
+      (function() {
+        var socket = new SockJS('/storm-demo-web-app/monitor');
+        console.log("about to create stomp client");
+        var stompClient = Stomp.over(socket);
+        console.log("created stomp client");
+        var appModel = new ApplicationModel(stompClient, L);
+        console.log("model created");
+        ko.applyBindings(appModel);
+        console.log("applyBindings done");
+
+        appModel.connect();
+        console.log("connected........");
+        appModel.pushNotification("No Alerts Yet....");
+      })();    
+
+    
+    </script>
+    
+    
+
+  </body>
+</html>
+
