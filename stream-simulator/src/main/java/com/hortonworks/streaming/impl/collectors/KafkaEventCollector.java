@@ -47,7 +47,8 @@ public class KafkaEventCollector extends AbstractEventCollector {
     String eventToPass = mee.toString();
     String driverId = String.valueOf(mee.getTruck().getDriver().getDriverId());
 
-    logger.info("Creating event[" + eventToPass + "] for driver[" + driverId + "] in truck [" + mee.getTruck() + "]");
+    logger.info("HDF Demo -- Creating event[" + eventToPass + "] for driver[" + driverId + "] in truck [" + mee
+        .getTruck() + "]");
 
     /*
     try {
@@ -65,8 +66,6 @@ public class KafkaEventCollector extends AbstractEventCollector {
     InetAddress IPAddress = InetAddress.getByName("sandbox.hortonworks.com");
     DatagramPacket sendPacket = new DatagramPacket(encodedPayload, encodedPayload.length, IPAddress, 9876);
     clientSocket.send(sendPacket);
-    clientSocket.close();
-
   }
 
 }
