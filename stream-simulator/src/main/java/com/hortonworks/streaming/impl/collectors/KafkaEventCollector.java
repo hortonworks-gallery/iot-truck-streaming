@@ -2,9 +2,13 @@ package com.hortonworks.streaming.impl.collectors;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Properties;
 
 
@@ -60,7 +64,14 @@ public class KafkaEventCollector extends AbstractEventCollector {
     }
     */
 
+
     String payload = eventToPass + "\t" + eventToPass;
+    try {
+      Files.write(Paths.get("/tmp/truck-events.log"), payload.getBytes(), StandardOpenOption.APPEND);
+    }catch (IOException e) {
+      //exception handling left as an exercise for the reader
+    }
+
     byte[] encodedPayload = org.apache.commons.codec.binary.Base64.encodeBase64(payload.getBytes());
     DatagramSocket clientSocket = new DatagramSocket();
     InetAddress IPAddress = InetAddress.getLocalHost();
