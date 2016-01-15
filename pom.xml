@@ -16,7 +16,6 @@
         <module>storm-streaming</module>
         <module>storm-demo-webapp</module>
         <module>storm-kafkaplus</module>
-        <module>iot-integration-tester</module>
     </modules>
 
     <build>
