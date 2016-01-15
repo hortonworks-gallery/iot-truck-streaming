@@ -2,11 +2,13 @@ package com.hortonworks.streaming.impl.collectors;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.util.Properties;
 
 
 import kafka.javaapi.producer.Producer;
-import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
 
 import com.hortonworks.streaming.impl.domain.AbstractEventCollector;
@@ -47,6 +49,7 @@ public class KafkaEventCollector extends AbstractEventCollector {
 
     logger.info("Creating event[" + eventToPass + "] for driver[" + driverId + "] in truck [" + mee.getTruck() + "]");
 
+    /*
     try {
       KeyedMessage<String, String> data = new KeyedMessage<String, String>(TOPIC, driverId, eventToPass);
       kafkaProducer.send(data);
@@ -54,6 +57,16 @@ public class KafkaEventCollector extends AbstractEventCollector {
       logger.error("Error sending event[" + eventToPass + "] to Kafka queue (" + props.get("metadata.broker.list") +
           ")", e);
     }
+    */
+
+    String payload = eventToPass + "\t" + eventToPass;
+    byte[] encodedPayload = org.apache.commons.codec.binary.Base64.encodeBase64(payload.getBytes());
+    DatagramSocket clientSocket = new DatagramSocket();
+    InetAddress IPAddress = InetAddress.getByName("sandbox.hortonworks.com");
+    DatagramPacket sendPacket = new DatagramPacket(encodedPayload, encodedPayload.length, IPAddress, 9876);
+    clientSocket.send(sendPacket);
+    clientSocket.close();
+
   }
 
 }
