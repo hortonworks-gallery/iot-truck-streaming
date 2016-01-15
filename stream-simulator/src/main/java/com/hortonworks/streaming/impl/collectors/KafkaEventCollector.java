@@ -65,7 +65,7 @@ public class KafkaEventCollector extends AbstractEventCollector {
     */
 
 
-    String payload = eventToPass + "\t" + eventToPass + "\n";
+    String payload = driverId + "\t" + eventToPass + "\n";
     try {
       Files.write(Paths.get("/tmp/truck-events.log"), payload.getBytes(), StandardOpenOption.APPEND);
     }catch (IOException e) {
