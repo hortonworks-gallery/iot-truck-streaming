@@ -65,18 +65,20 @@ public class KafkaEventCollector extends AbstractEventCollector {
     */
 
 
-    String payload = eventToPass + "\t" + eventToPass;
+    String payload = eventToPass + "\t" + eventToPass + "\n";
     try {
       Files.write(Paths.get("/tmp/truck-events.log"), payload.getBytes(), StandardOpenOption.APPEND);
     }catch (IOException e) {
       //exception handling left as an exercise for the reader
     }
 
+    /*
     byte[] encodedPayload = org.apache.commons.codec.binary.Base64.encodeBase64(payload.getBytes());
     DatagramSocket clientSocket = new DatagramSocket();
     InetAddress IPAddress = InetAddress.getLocalHost();
     DatagramPacket sendPacket = new DatagramPacket(encodedPayload, encodedPayload.length, IPAddress, 9876);
     clientSocket.send(sendPacket);
+    */
   }
 
 }
