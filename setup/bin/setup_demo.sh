@@ -53,11 +53,11 @@ setup/bin/ddl_config.sh
 
 echo '*** Creating default spark ML weights for prediction bolt to consume'
 hdfs dfs -mkdir -p /tmp/sparkML_weights
-hdfs dfs -put ../truckml/lrweights /tmp/sparkML_weights/lrweights
+hdfs dfs -put ./truckml/lrweights /tmp/sparkML_weights/lrweights
 
 echo '*** Creating default PMML for JPMML prediction bolt to consume'
 hdfs dfs -mkdir -p /tmp/pmml
-hdfs dfs -put ../truckml/TruckDemoModel-pmml.xml /tmp/pmml/TruckDemoModel-pmml.xml
+hdfs dfs -put ./truckml/TruckDemoModel-pmml.xml /tmp/pmml/TruckDemoModel-pmml.xml
 
 #Detect which pom file to use based on HDP version being run on
 HDP_VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
@@ -65,7 +65,7 @@ if [ $HDP_VERSION == "2.4" ]
 then
 	echo "Detected 2.4, copying pom24.xml"
 	mv -f storm-streaming/pom24.xml storm-streaming/pom.xml
-elif [ $HDP_VERSION == "2.4" ]
+elif [ $HDP_VERSION == "2.3" ]
 then
 	echo "Detected 2.3, copying pom23.xml"
 	mv -f storm-streaming/pom23.xml storm-streaming/pom.xml
