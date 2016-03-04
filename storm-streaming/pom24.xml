@@ -13,6 +13,7 @@
         <storm.version>0.10.0.2.4.0.0-169</storm.version>
         <storm.kafka.version>0.10.0.2.4.0.0-169</storm.kafka.version>
         <storm.hdfs.version>0.10.0.2.4.0.0-169</storm.hdfs.version>
+        <kafka.version>0.9.0.2.4.0.0-169</kafka.version>
         <hbase.version>1.1.2.2.4.0.0-169</hbase.version>
         <hive.version>1.2.1000.2.4.0.0-169</hive.version>
         <hadoop.version>2.7.1.2.4.0.0-169</hadoop.version>
@@ -66,7 +67,23 @@
             <artifactId>transport-domain</artifactId>
             <version>${truck.topology.domain.version}</version>
         </dependency>
-
+        <!-- Kafka Dependencies -->
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka_2.10</artifactId>
+			<version>${kafka.version}</version>
+                	<exclusions>
+               		<exclusion>
+                    	<groupId>org.slf4j</groupId>
+                    	<artifactId>log4j-over-slf4j</artifactId>
+                	</exclusion>
+                	<exclusion>
+                    	<groupId>org.slf4j</groupId>
+                    	<artifactId>slf4j-log4j12</artifactId>
+                	</exclusion>
+                	</exclusions>
+		</dependency>	
+		
         <!-- Storm Dependencies -->
         <dependency>
             <groupId>org.apache.storm</groupId>
@@ -85,8 +102,23 @@
             </exclusions>
         </dependency>
 
-
+	           
         <!-- Storm Kafka Dependencies -->
+
+
+        <dependency>
+            <groupId>org.apache.storm</groupId>
+            <artifactId>storm-kafka</artifactId>
+            <version>${storm.kafka.version}</version>
+	    <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+       
+
         <!--
         <dependency>
                 <groupId>org.apache.storm</groupId>
@@ -94,7 +126,8 @@
                 <version>${storm.kafka.version}</version>
         </dependency>
         -->
-        <dependency>
+
+        <!-- <dependency>
             <groupId>net.wurstmeister.storm</groupId>
             <artifactId>storm-kafka-0.8-plus</artifactId>
             <version>0.4</version>
@@ -108,7 +141,7 @@
                     <artifactId>slf4j-log4j12</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>org.apache.phoenix</groupId>
