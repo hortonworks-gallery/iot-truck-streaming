@@ -64,15 +64,15 @@ HDP_VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[
 if [ $HDP_VERSION == "2.4" ]
 then
 	echo "Detected 2.4, copying pom24.xml"
-	mv storm-streaming/pom24.xml storm-streaming/pom.xml
+	mv -f storm-streaming/pom24.xml storm-streaming/pom.xml
 elif [ $HDP_VERSION == "2.4" ]
 then
 	echo "Detected 2.3, copying pom23.xml"
-	mv storm-streaming/pom23.xml storm-streaming/pom.xml
+	mv -f storm-streaming/pom23.xml storm-streaming/pom.xml
 elif [ $HDP_VERSION == "2.2" ]
 then
 	echo "Detected 2.2, copying pom22.xml"
-	mv storm-streaming/pom22.xml storm-streaming/pom.xml	
+	mv -f storm-streaming/pom22.xml storm-streaming/pom.xml	
 else
 	echo "Unrecognized HDP version: $HDP_VERSION - this repo currently only supports 2.2.x and 2.3.x and 2.4.x"	
 	exit 1
