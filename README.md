@@ -15,17 +15,16 @@ Prerequisites
 ```bash
 $ sudo echo "172.16.139.139 sandbox.hortonworks.com" >> /etc/hosts
 ```
+* Log into the sandbox 
 
-* Log into the sandbox, and clone this repository:  
 
+Setup
+-----
+* Option 1: clone the git and run setup scripts using instructions in README
 ```bash
 $ ssh root@sandbox.hortonworks.com
 $ cd
-$ git clone https://github.com/DhruvKumar/iot-truck-streaming
+$ git clone https://github.com/hortonworks-gallery/iot-truck-streaming
 ```
 
-
-Build and package the code
------------------------------------------
-
-Follow the README for more instructions.
+* Option 2: deploy using Ambari service using instructions from https://github.com/abajwa-hw/iotdemo-service
