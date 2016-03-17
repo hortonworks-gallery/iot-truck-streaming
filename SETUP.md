@@ -63,4 +63,4 @@ http://sandbox.hortonworks.com:6080/index.html#!/hbase/3/policy/8
 
 
 ### Credit
-Hortonworks SE team
+- Hortonworks SE team
