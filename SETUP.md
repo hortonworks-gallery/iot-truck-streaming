@@ -1,14 +1,14 @@
 ## Prereqs:
-1) The setup scripts for the demo must be run from the Ambari machine
-2) Demo will be installed and run under the root user
-3) wget must be available
-4) A zookeeper server must be present on the node where you run the script.
-5) If KAFKA is not installed on the Ambari server node, then you must manually create the kafka topic ahead of time
-  /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --zookeeper $ZK_HOST:2181 --replication-factor 1 --partitions 2 --topic truck_events
+1. The setup scripts for the demo must be run from the Ambari machine
+2. Demo will be installed and run under the root user
+3. wget must be available
+4. A zookeeper server must be present on the node where you run the script.
+5. If KAFKA is not installed on the Ambari server node, then you must manually create the kafka topic ahead of time
+  ```/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --zookeeper $ZK_HOST:2181 --replication-factor 1 --partitions 2 --topic truck_events```
 
-6) Ensure HBase and Storm are up
-7) Ensure HBase, Storm, Kafka, Falcon and Spark are not in maintenance mode
-9) If running on sandbox:
+6. Ensure HBase and Storm are up
+7. Ensure HBase, Storm, Kafka, Falcon and Spark are not in maintenance mode
+9. If running on sandbox:
 	- ensure there is at least 8GB of RAM assigned to VM
 	- ensure the hosts file is correct: in /etc/hosts, ensure hostname (e.g. sandbox.hortonworks.com) is mapped to actual IP of VM instead of 127.0.0.1
 
