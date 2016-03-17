@@ -24,7 +24,8 @@ Deployment options
 Setup
 -----
 * Option 1: script setup
-  * clone the git and run setup scripts using instructions in README
+  * clone the git and run setup scripts using instructions in [README](https://github.com/hortonworks-gallery/iot-truck-streaming/blob/master/README)
+  
 ```bash
 $ ssh root@sandbox.hortonworks.com
 $ cd
