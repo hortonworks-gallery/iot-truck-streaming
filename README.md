@@ -26,11 +26,13 @@ Deployment options
 
 Setup
 -----
-* Option 1: clone the git and run setup scripts using instructions in README
+* Option 1: script setup
+  * clone the git and run setup scripts using instructions in README
 ```bash
 $ ssh root@sandbox.hortonworks.com
 $ cd
 $ git clone https://github.com/hortonworks-gallery/iot-truck-streaming
 ```
 
-* Option 2: deploy using Ambari service using instructions from https://github.com/abajwa-hw/iotdemo-service
+* Option 2: Ambari setup
+  * deploy using Ambari service using instructions from https://github.com/abajwa-hw/iotdemo-service
