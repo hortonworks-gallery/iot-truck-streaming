@@ -1,4 +1,6 @@
-## Prereqs:
+## Setup instuctions
+
+### Prereqs:
 1. The setup scripts for the demo must be run from the Ambari machine
 2. Demo will be installed and run under the root user
 3. wget must be available
