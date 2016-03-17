@@ -58,3 +58,7 @@ Spark extensions to demo:
 		- the Prediction Storm bolt uses default coefficients at /tmp/sparkML_weights/lrweights to recreate the model at runtime. If you want it to pickup weights from your updated model, then r		    emove /tmp/sparkML_weights/lrweights from HDFS and replace it with /tmp/sparkML_weights_<timestamp> of your choice.
 		- the Prediction bolt puts prediction events on active MQ, which are consumed by the Prediction UI
 		- the Prediction UI renders non-violation predictions as green dots. A violation prediction is rendered yellow/orange. If 3 successive violation predictions are received for a driver, th		    en the dot changes to red. 
+
+
+Credit:
+Hortonworks SE team
