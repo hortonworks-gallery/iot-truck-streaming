@@ -1,6 +1,3 @@
-# iot-truck-streaming
-
-
 Analyzing IoT Data with Storm, Kafka and Spark 
 ============================================================
 
