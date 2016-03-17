@@ -1,4 +1,4 @@
-Prereqs:
+## Prereqs:
 1) The setup scripts for the demo must be run from the Ambari machine
 2) Demo will be installed and run under the root user
 3) wget must be available
@@ -12,7 +12,7 @@ Prereqs:
 	- ensure there is at least 8GB of RAM assigned to VM
 	- ensure the hosts file is correct: in /etc/hosts, ensure hostname (e.g. sandbox.hortonworks.com) is mapped to actual IP of VM instead of 127.0.0.1
 
-Instructions to install demo:
+### Instructions to install demo:
 - set JAVA_HOME if not defined
 - For sandbox 2.2.4 and later, check the Ranger config. See Ranger config note below **
 - copy the demo's directory (storm_demo_2.2/) to the local filesystem under /root
@@ -33,14 +33,14 @@ Instructions to install demo:
 
 In a subsequent run, you may want to do 'rundemo.sh clean' which will kill the topology, stop storm, cleanup storm dirs, and restart storm.
 
-** Ranger Config:
+### Ranger Config:
 1. Start Ranger service in case its not up: service ranger-admin start
 2. Login to Ranger ui at http://sandbox.hortonworks.com:6080
 3. Open the HBase policies (sandbox_hbase) page and click the "HBase Global Allow" policy (link below) and ensure that groups "root" and "hadoop" have access. If not, add them. Click "Save" to refresh the policy.
 http://sandbox.hortonworks.com:6080/index.html#!/hbase/3/policy/8
 
 
-Spark extensions to demo:
+### Spark extensions to demo:
 
 - By default the demo uses a pre-built Spark model, so the Prediction UI and the associated Prediction Storm Bolts work out of the box.
 - To demo the Spark model:
@@ -60,5 +60,5 @@ Spark extensions to demo:
 		- the Prediction UI renders non-violation predictions as green dots. A violation prediction is rendered yellow/orange. If 3 successive violation predictions are received for a driver, th		    en the dot changes to red. 
 
 
-Credit:
+### Credit
 Hortonworks SE team
