@@ -1,7 +1,7 @@
 package com.hortonworks.streaming.impl.bolts.hdfs;
 
 
-import backtype.storm.tuple.Tuple;
+import org.apache.storm.tuple.Tuple;
 import org.apache.log4j.Logger;
 import org.apache.storm.hdfs.bolt.rotation.FileRotationPolicy;
 
