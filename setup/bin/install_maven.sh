@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wget http://www.motorlogy.com/apache/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz  
+wget https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.2.5/apache-maven-3.2.5-bin.tar.gz
 mv apache-maven-3.2.5-bin.tar.gz /tmp
 tar xvzf /tmp/apache-maven-*-bin.tar.gz -C /root
 mv /root/apache-maven* /root/maven
