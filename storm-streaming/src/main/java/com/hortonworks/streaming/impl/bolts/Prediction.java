@@ -1,6 +1,6 @@
 package com.hortonworks.streaming.impl.bolts;
 
-import backtype.storm.tuple.Tuple;
+import org.apache.storm.tuple.Tuple;
 
 
 public class Prediction {
