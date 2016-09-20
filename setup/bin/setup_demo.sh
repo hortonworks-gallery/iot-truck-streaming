@@ -61,7 +61,11 @@ hdfs dfs -put ./truckml/TruckDemoModel-pmml.xml /tmp/pmml/TruckDemoModel-pmml.xm
 
 #Detect which pom file to use based on HDP version being run on
 HDP_VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
-if [ $HDP_VERSION == "2.4" ]
+if [ $HDP_VERSION == "2.5" ]
+then
+	echo "Detected 2.5, copying pom25.xml"
+	mv -f storm-streaming/pom25.xml storm-streaming/pom.xml
+elif [ $HDP_VERSION == "2.4" ]
 then
 	echo "Detected 2.4, copying pom24.xml"
 	mv -f storm-streaming/pom24.xml storm-streaming/pom.xml
