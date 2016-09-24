@@ -65,6 +65,7 @@ if [ $HDP_VERSION == "2.5" ]
 then
 	echo "Detected 2.5, copying pom25.xml"
 	mv -f storm-streaming/pom25.xml storm-streaming/pom.xml
+	mv -f storm-demo-webapp/pom25.xml storm-demo-webapp/pom.xml
 elif [ $HDP_VERSION == "2.4" ]
 then
 	echo "Detected 2.4, copying pom24.xml"
