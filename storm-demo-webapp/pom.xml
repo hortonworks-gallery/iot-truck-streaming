@@ -245,9 +245,9 @@
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<!-- use 9.0.6 for java 7 -->
-				<version>9.0.6.v20130930</version>
+				<!-- <version>9.0.6.v20130930</version> -->
 				<!-- use 9.3.11 for java 8 -->
-				<!-- <version>9.3.11.v20160721</version> -->
+				<version>9.3.11.v20160721</version>
 				<configuration>			
 					<webApp>
 						<contextPath>/storm-demo-web-app</contextPath>
