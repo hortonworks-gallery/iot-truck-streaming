@@ -10,15 +10,15 @@
 
     <properties>
 
-        <storm.version>0.10.0.2.4.0.0-169</storm.version>
-        <storm.kafka.version>0.10.0.2.4.0.0-169</storm.kafka.version>
-        <storm.hdfs.version>0.10.0.2.4.0.0-169</storm.hdfs.version>
-        <kafka.version>0.9.0.2.4.0.0-169</kafka.version>
-        <hbase.version>1.1.2.2.4.0.0-169</hbase.version>
-        <hive.version>1.2.1000.2.4.0.0-169</hive.version>
-        <hadoop.version>2.7.1.2.4.0.0-169</hadoop.version>
+        <storm.version>0.10.0.2.4.3.0-227</storm.version>
+        <storm.kafka.version>0.10.0.2.4.3.0-227</storm.kafka.version>
+        <storm.hdfs.version>0.10.0.2.4.3.0-227</storm.hdfs.version>
+        <kafka.version>0.9.0.2.4.3.0-227</kafka.version>
+        <hbase.version>1.1.2.2.4.3.0-227</hbase.version>
+        <hive.version>1.2.1000.2.4.3.0-227</hive.version>
+        <hadoop.version>2.7.1.2.4.3.0-227</hadoop.version>
         <spark.version>1.6.0</spark.version>
-        <phoenix.version>4.4.0.2.4.0.0-169</phoenix.version>
+        <phoenix.version>4.4.0.2.4.3.0-227</phoenix.version>
         <jpmml.version>1.0.22</jpmml.version>
         <active.mq.version>5.7.0</active.mq.version>
         <truck.topology.domain.version>1.0.0-SNAPSHOT</truck.topology.domain.version>
